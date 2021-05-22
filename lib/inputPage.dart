@@ -86,17 +86,21 @@ class _InputPageState extends State<InputPage> {
                       )
                     ],
                   ),
-                  Slider(
-                      value: height.toDouble(),// we have to convert it to double bcoz Slider Widget takes a double value so had to convert the int to double
-                      min: 110,
-                      max: 220,
-                      activeColor: kActiveSliderColor,
-                      inactiveColor: kInactiveSliderColor,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round(); // round is used to make it a whole number i.e int
-                        });
-                      })
+                  SliderTheme(
+                    //context stores the current state of our app i.e how our app looks like
+                    data:SliderTheme.of(context),
+                        child: Slider(
+                        value: height.toDouble(),// we have to convert it to double bcoz Slider Widget takes a double value so had to convert the int to double
+                        min: 110,
+                        max: 220,
+                        activeColor: Colors.white,
+                        inactiveColor: kInactiveSliderColor,
+                        onChanged: (double newValue) {
+                          setState(() {
+                            height = newValue.round(); // round is used to make it a whole number i.e int
+                          });
+                        }),
+                  )
                 ],
               ),
             )),
